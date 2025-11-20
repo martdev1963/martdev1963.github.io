@@ -11,7 +11,7 @@
 <body>
 <header>
     <div class="container">
-        <h1><a href="http://martdev1963.github.io" style="color: inherit; text-decoration: none;">Martin Batista</a></h1>
+        <h1><a href="http://martdev1963.github.io" style="color: inherit; text-decoration: none;">Martín Batista</a></h1>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
@@ -26,13 +26,13 @@
 <section id="hero" class="hero-section">
     <div class="container">
         <div class="hero-content">
-            <h2>Hello, I'm Martin</h2>
+            <h2>Hello, I'm Martín</h2>
             <p>A passionate Educator & Software Developer with a love for all things Tech.</p>
             <a href="#portfolio" class="btn">View My Work</a>
         </div>
         <div class="hero-image">
             <!-- You can put an image of yourself here or an illustrative graphic -->
-            <img src="mart.png" alt="Your Profile Picture">
+            <img src="mart2.png" alt="Your Profile Picture">
         </div>
     </div>
 </section>
@@ -53,21 +53,32 @@
     <div class="container">
         <h2>Experience</h2>
         <div class="experience-item">
-            <h3>[Job Title] at [Company Name]</h3>
-            <p class="date">[Start Date] - [End Date]</p>
+            <h3>Coding Instructor at Code WizardsHQ Inc.</h3>
+            <p class="date">[2019] - [Present]</p>
             <ul>
-                <li>[Key responsibility/achievement 1]</li>
-                <li>[Key responsibility/achievement 2]</li>
-                <li>[Key responsibility/achievement 3]</li>
+                <li>Teaching coding online to kids, ages 8 through 18</li>
+                <li>Python, JavaScript, Flask, SQL, Jinja, HTML, CSS, XML, AJAX, jQuery and other framworks</li>
+                <li>Inspiring kids to aspire to being the programmers of the future</li>
             </ul>
         </div>
         <div class="experience-item">
-            <h3>[Job Title] at [Company Name]</h3>
-            <p class="date">[Start Date] - [End Date]</p>
+            <h3> Music Teacher at Avalon School Of Music</h3>
+            <p class="date">[2018] - [Present]</p>
             <ul>
-                <li>[Key responsibility/achievement 1]</li>
-                <li>[Key responsibility/achievement 2]</li>
-                <li>[Key responsibility/achievement 3]</li>
+                <li>Teaching students of all ages to play the piano</li>
+                <li>General music education</li>
+                <li>Various music genres; classical, baroque, contemporary works</li>
+                <li>Jazz, Pop, Rock</li>
+            </ul>
+        </div>
+                <div class="experience-item">
+            <h3> Lean Chefs LLC</h3>
+            <p class="date">[2015] - [2018]</p>
+            <ul>
+                <li>Data Manager</li>
+                <li>Maintaining grand-fathered accounts, as well as reactivating dormant accounts</li>
+                <li>Processing transactions using payment gateway functionality</li>
+                <li>Processing culinary preferences and gastronomical restrictions per customer using proprietary CRM system</li>
             </ul>
         </div>
         <!-- Add more experience items as needed -->
@@ -85,16 +96,28 @@
                 <a href="https://planetary-trajectories.onrender.com/" class="btn-small" target="_blank">View Project</a>
             </div>
             <div class="portfolio-item">
-                <img src="star-trek-app.png" alt="Project 2">
+                <img src="hmm.png" alt="Project 2">
+                <h3>Happy Music Match</h3>
+                <p>This Flask/postgresql app provides a means for students to find music teachers and vise-versa world-wide.</p>
+                <a href="https://mchappy-music-lessons-app-ifp5.onrender.com/" class="btn-small" target="_blank">View Project</a>
+            </div>
+            <div class="portfolio-item">
+                <img src="star-trek-app.png" alt="Project 3">
                 <h3>Captain's Log Viewer</h3>
                 <p>A star Trek themed app that displays humourous captain logs with sounds. Technologies used: React, Javascript, html, css.</p>
                 <a href="https://captains-log-viewer-6vn5gyaqy-martdev1963s-projects.vercel.app/" class="btn-small" target="_blank">View Project</a>
             </div>
             <div class="portfolio-item">
-                <img src="recipe-generator.png" alt="Project 3">
+                <img src="recipe-generator.png" alt="Project 4">
                 <h3>Recipe Generator</h3>
                 <p>The Recipe Generator, a web application that leverages a Python backend and a JavaScript frontend to create, store, and manage recipes.</p>
                 <a href="https://postimg.cc/zySdk0kJ" class="btn-small" target="_blank">View Project</a>
+            </div>
+            <div class="portfolio-item">
+                <img src="food-resque.png" alt="Project 5">
+                <h3>Food Rescue</h3>
+                <p>This Python back-end app provides a means for food donators to donate to charities in need as well as facilitating food waste processing.</p>
+                <a href="https://food-rescue-3uu7.onrender.com/" class="btn-small" target="_blank">View Project</a>
             </div>
             <!-- Add more portfolio items as needed -->
         </div>
@@ -105,7 +128,7 @@
     <div class="container">
         <h2>Get in Touch</h2>
         <p>I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
-        <form action="#" method="POST">
+        <form id="contactForm">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
@@ -118,11 +141,12 @@
                 <label for="message">Message</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
             </div>
-            <button type="submit" class="btn">Send Message</button>
+            <button type="submit" class="btn" id="submitBtn">Send Message</button>
+            <div id="formMessage" style="margin-top: 15px; padding: 12px; border-radius: 5px; display: none;"></div>
         </form>
         <div class="social-links">
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">LinkedIn</a>
-            <a href="https://github.com/yourprofile" target="_blank" aria-label="GitHub">GitHub</a>
+            <a href="https://linkedin.com/in/martín-batista-853262136/" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+            <a href="https://github.com/martdev1963" target="_blank" aria-label="GitHub">GitHub</a>
             <!-- Add more social links as needed -->
         </div>
     </div>
@@ -133,5 +157,77 @@
         <p>&copy; 2025 MAB Media. All rights reserved.</p>
     </div>
 </footer>
+
+<script>
+    // Update this URL to match your backend server
+    // For local development: 'http://localhost:3000/api/contact' or 'http://127.0.0.1:3000/api/contact'
+    // For production: Replace with your deployed backend URL (e.g., 'https://your-backend-domain.com/api/contact')
+    const API_URL = 'http://127.0.0.1:3000/api/contact';
+
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const messageDiv = document.getElementById('formMessage');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = {
+            name: document.getElementById('name').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            message: document.getElementById('message').value.trim()
+        };
+
+        // Validate
+        if (!formData.name || !formData.email || !formData.message) {
+            showMessage('Please fill in all fields.', 'error');
+            return;
+        }
+
+        // Disable submit button and show loading
+        submitBtn.disabled = true;
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        hideMessage();
+
+        try {
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await response.json();
+
+            if (response.ok && data.success) {
+                showMessage(data.message || 'Your message has been sent successfully!', 'success');
+                form.reset();
+            } else {
+                showMessage(data.error || 'Failed to send message. Please try again.', 'error');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            showMessage('Network error. Please check if the server is running or try again later.', 'error');
+        } finally {
+            // Re-enable submit button
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+        }
+    });
+
+    function showMessage(text, type) {
+        messageDiv.textContent = text;
+        messageDiv.style.display = 'block';
+        messageDiv.style.backgroundColor = type === 'success' ? '#d4edda' : '#f8d7da';
+        messageDiv.style.color = type === 'success' ? '#155724' : '#721c24';
+        messageDiv.style.border = `1px solid ${type === 'success' ? '#c3e6cb' : '#f5c6cb'}`;
+    }
+
+    function hideMessage() {
+        messageDiv.style.display = 'none';
+    }
+</script>
 </body>
 </html>
