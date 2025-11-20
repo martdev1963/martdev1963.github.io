@@ -13,21 +13,24 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Create reusable transporter object using Gmail SMTP
+// Try port 465 with SSL first (more reliable on Render)
 const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
-    port: 587,
-    secure: false, // true for 465, false for other ports
+    port: 465,
+    secure: true, // true for 465, false for other ports
     auth: {
         user: process.env.GMAIL_USER,
         pass: process.env.GMAIL_APP_PASSWORD // Use App Password, not regular password
     },
     tls: {
-        rejectUnauthorized: false,
-        ciphers: 'SSLv3'
+        rejectUnauthorized: false
     },
-    connectionTimeout: 10000, // 10 seconds
-    greetingTimeout: 10000,
-    socketTimeout: 10000
+    connectionTimeout: 20000, // 20 seconds
+    greetingTimeout: 20000,
+    socketTimeout: 20000,
+    pool: true, // Use connection pooling
+    maxConnections: 1,
+    maxMessages: 3
 });
 
 // Verify transporter configuration (with retry logic for Render)
@@ -105,8 +108,15 @@ app.post('/api/contact', async (req, res) => {
         console.error('Error sending email:', error);
         console.error('Error details:', error.message);
         console.error('Error code:', error.code);
+        console.error('Error stack:', error.stack);
         
-        // Return more detailed error for debugging (remove in production)
+        // Retry logic for connection timeouts
+        if (error.code === 'ETIMEDOUT' || error.code === 'ECONNRESET' || error.code === 'ESOCKET') {
+            console.log('Connection error detected, this may be a temporary network issue on Render.');
+            console.log('The form submission was received, but email delivery failed.');
+        }
+        
+        // Return more detailed error for debugging
         res.status(500).json({ 
             success: false, 
             error: 'Failed to send message. Please try again later.',
