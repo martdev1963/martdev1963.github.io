@@ -14,24 +14,46 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Create reusable transporter object using Gmail SMTP
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false, // true for 465, false for other ports
     auth: {
         user: process.env.GMAIL_USER,
         pass: process.env.GMAIL_APP_PASSWORD // Use App Password, not regular password
     },
     tls: {
-        rejectUnauthorized: false // For development - remove in production or use proper certificates
-    }
+        rejectUnauthorized: false,
+        ciphers: 'SSLv3'
+    },
+    connectionTimeout: 10000, // 10 seconds
+    greetingTimeout: 10000,
+    socketTimeout: 10000
 });
 
-// Verify transporter configuration
-transporter.verify(function(error, success) {
-    if (error) {
-        console.log('Email transporter error:', error);
-    } else {
-        console.log('Email server is ready to send messages');
-    }
-});
+// Verify transporter configuration (with retry logic for Render)
+let verificationAttempts = 0;
+const maxVerificationAttempts = 3;
+
+function verifyTransporter() {
+    transporter.verify(function(error, success) {
+        if (error) {
+            verificationAttempts++;
+            console.log(`Email transporter verification attempt ${verificationAttempts}:`, error.message);
+            if (verificationAttempts < maxVerificationAttempts) {
+                // Retry after 5 seconds
+                setTimeout(verifyTransporter, 5000);
+            } else {
+                console.log('Email transporter verification failed after multiple attempts. Emails may not work.');
+                console.log('This is often a temporary network issue on Render. The server will continue running.');
+            }
+        } else {
+            console.log('✅ Email server is ready to send messages');
+        }
+    });
+}
+
+// Start verification (with delay on Render to allow network to stabilize)
+setTimeout(verifyTransporter, 2000);
 
 // Form submission endpoint
 app.post('/api/contact', async (req, res) => {
