@@ -93,6 +93,18 @@ app.post('/api/contact', async (req, res) => {
     }
 });
 
+// Root endpoint
+app.get('/', (req, res) => {
+    res.json({ 
+        message: 'Contact Form Backend API',
+        endpoints: {
+            health: '/api/health',
+            contact: '/api/contact (POST)'
+        },
+        status: 'running'
+    });
+});
+
 // Health check endpoint
 app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', message: 'Server is running' });
