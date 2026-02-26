@@ -150,7 +150,7 @@ header nav ul li a.active::after {
 }
 
 .hero-image img {
-    border-radius: 50%; /* Circular image */
+    border-radius: 30%; /* Circular image */
     width: 250px;
     height: 250px;
     object-fit: cover;
