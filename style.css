@@ -274,9 +274,21 @@ section h2::after {
 /* Portfolio Section */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
     gap: 30px;
     margin-top: 40px;
+}
+
+@media (min-width: 600px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 960px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .portfolio-item {
@@ -286,6 +298,9 @@ section h2::after {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
 }
 
 .portfolio-item:hover {
@@ -310,6 +325,7 @@ section h2::after {
     padding: 0 20px 15px 20px;
     font-size: 0.95em;
     color: var(--secondary-color);
+    flex: 1;
 }
 
 .portfolio-item .btn-small {
@@ -459,6 +475,7 @@ footer p {
 
     .portfolio-grid {
         grid-template-columns: 1fr;
+        max-width: 100%;
     }
 
     section {
