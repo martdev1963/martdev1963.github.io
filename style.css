@@ -424,6 +424,35 @@ section h2::after {
     width: 100%;
 }
 
+.patreon-link {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--dark-color);
+}
+
+.patreon-link img {
+    width: 160px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.patreon-link:hover {
+    color: var(--primary-color);
+}
+
+.patreon-link:hover img {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.patreon-link::after {
+    display: none;
+}
+
 
 /* Footer */
 footer {
